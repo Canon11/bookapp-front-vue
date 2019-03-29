@@ -12,6 +12,10 @@
         slot-scope="data"
       >{{ categories[data.category] ? categories[data.category] : 'undefined' }}</template>
     </b-table>
+
+    <div>
+      <b-button variant="primary" to="books/new">Create</b-button>
+    </div>
   </div>
 </template>
 
