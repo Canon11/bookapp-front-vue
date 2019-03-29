@@ -6,7 +6,11 @@
     </b-breadcrumb>
 
     <h1>CategoryList</h1>
-    <b-table striped hover :items="categories"></b-table>
+    <b-table striped hover :items="categories">
+      <template slot="id" slot-scope="data">
+        <b-link :to="'/categories/' + data.item.id">{{ data.item.id }}</b-link>
+      </template>
+    </b-table>
 
     <div>
       <b-button variant="primary" to="categories/new">Create</b-button>

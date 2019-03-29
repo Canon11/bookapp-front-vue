@@ -6,12 +6,12 @@ import BookCreate from "../components/BookCreate";
 import BookList from "../components/BookList";
 import CategoryCreate from "../components/CategoryCreate";
 import CategoryList from "../components/CategoryList";
+import CategoryDetail from "../components/CategoryDetail"
 
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: "/",
       component: Top
     },
@@ -30,6 +30,10 @@ export default new Router({
     {
       path: "/categories/new",
       component: CategoryCreate
+    },
+    {
+      path: "/categories/:id",
+      component: CategoryDetail
     }
   ]
 });
