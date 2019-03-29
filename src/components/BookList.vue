@@ -7,10 +7,7 @@
 
     <h1>BookList</h1>
     <b-table striped hover :items="books">
-      <template
-        slot="category"
-        slot-scope="data"
-      >{{ categories[data.category] ? categories[data.category] : 'undefined' }}</template>
+      <template slot="category" slot-scope="data">{{ categories[data.item.category] }}</template>
     </b-table>
 
     <div>
@@ -32,24 +29,16 @@ export default {
     };
   },
   created: function() {
-    axios
-      .get(ApiHost.url + "/books", {
-        headers: { "Content-Type": "application/json" }
-      })
-      .then(response => {
+    axios.get(ApiHost.url + "/categories").then(response => {
+      let categories = response.data;
+      for (var i in categories) {
+        var category = categories[i];
+        this.categories[category.id] = category.name;
+      }
+      axios.get(ApiHost.url + "/books").then(response => {
         this.books = response.data;
       });
-    axios
-      .get(ApiHost.url + "/categories", {
-        headers: { "Content-Type": "application/json" }
-      })
-      .then(response => {
-        let categories = response.data;
-        for (var i in categories) {
-          var category = categories[i];
-          this.categories[category.id] = category.name;
-        }
-      });
+    });
   }
 };
 </script>
