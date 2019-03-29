@@ -1,13 +1,12 @@
 <template>
   <div class="category-list">
-    <div>
-      <router-link to="/">back to top</router-link>
-    </div>
+    <b-breadcrumb>
+      <b-breadcrumb-item to="/" text="Top"></b-breadcrumb-item>
+      <b-breadcrumb-item text="Categories" active="true"></b-breadcrumb-item>
+    </b-breadcrumb>
+
     <h1>CategoryList</h1>
-    <div v-for="category in categories" :key="category.id">
-      <p>ID: {{ category.id }}</p>
-      <p>Name: {{ category.name }}</p>
-    </div>
+    <b-table striped hover :items="categories"></b-table>
   </div>
 </template>
 
