@@ -7,6 +7,10 @@
 
     <h1>CategoryList</h1>
     <b-table striped hover :items="categories"></b-table>
+
+    <div>
+      <b-button variant="primary" to="categories/new">Create</b-button>
+    </div>
   </div>
 </template>
 

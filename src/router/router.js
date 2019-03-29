@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Top from '../components/Top'
 import BookList from '../components/BookList'
+import CategoryCreate from '../components/CategoryCreate'
 import CategoryList from '../components/CategoryList'
 
 Vue.use(Router)
@@ -19,6 +20,10 @@ export default new Router({
         {
             path: '/categories',
             component: CategoryList
-        }
+        },
+        {
+            path: '/categories/new',
+            component: CategoryCreate
+        },
     ]
 })
