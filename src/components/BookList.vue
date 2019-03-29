@@ -1,24 +1,17 @@
 <template>
   <div class="book-list">
-    <v-toolbar color="teal">
-      <v-toolbar-side-icon></v-toolbar-side-icon>
+    <b-breadcrumb>
+      <b-breadcrumb-item to="/" text="Top"></b-breadcrumb-item>
+      <b-breadcrumb-item text="Books" active="true"></b-breadcrumb-item>
+    </b-breadcrumb>
 
-      <v-toolbar-title>Manage</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>more_vert</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <div>
-      <router-link to="/">back to top</router-link>
-    </div>
     <h1>BookList</h1>
-    <div v-for="book in books" :key="book.id">
-      <p>Name: {{ book.name }}</p>
-      <p>Category: {{ categories[book.category] ? categories[book.category] : 'undefined' }}</p>
-    </div>
+    <b-table striped hover :items="books">
+      <template
+        slot="category"
+        slot-scope="data"
+      >{{ categories[data.category] ? categories[data.category] : 'undefined' }}</template>
+    </b-table>
   </div>
 </template>
 

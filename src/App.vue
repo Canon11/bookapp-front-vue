@@ -21,7 +21,7 @@
     </b-navbar>
 
     <!-- this is main area -->
-    <b-container>
+    <b-container class="mt-2 mb-2">
       <router-view></router-view>
     </b-container>
   </div>
