@@ -3,7 +3,7 @@
     <b-breadcrumb>
       <b-breadcrumb-item to="/" text="Top"></b-breadcrumb-item>
       <b-breadcrumb-item to="/categories" text="Categories"></b-breadcrumb-item>
-      <b-breadcrumb-item text="Create" active="true"></b-breadcrumb-item>
+      <b-breadcrumb-item text="Create" active></b-breadcrumb-item>
     </b-breadcrumb>
 
     <h1>CategoryCreate</h1>
@@ -23,6 +23,9 @@
 </template>
 
 <script>
+import ApiHost from "../api/ApiHost";
+import axios from "axios";
+
 export default {
   name: "CategoryCreate",
   data: function() {
@@ -35,7 +38,13 @@ export default {
   methods: {
     onSubmit: function(e) {
       e.preventDefault();
-      alert(JSON.stringify(this.form));
+
+      var params = new URLSearchParams();
+      params.append("name", this.form.name);
+
+      axios.post(ApiHost.url + "/categories", params).then(response => {
+        console.log(response);
+      });
     }
   }
 };
