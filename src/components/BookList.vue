@@ -2,7 +2,7 @@
   <div class="book-list">
     <b-breadcrumb>
       <b-breadcrumb-item to="/" text="Top"></b-breadcrumb-item>
-      <b-breadcrumb-item text="Books" active="true"></b-breadcrumb-item>
+      <b-breadcrumb-item text="Books" active></b-breadcrumb-item>
     </b-breadcrumb>
 
     <h1>BookList</h1>

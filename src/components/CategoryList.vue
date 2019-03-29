@@ -2,7 +2,7 @@
   <div class="category-list">
     <b-breadcrumb>
       <b-breadcrumb-item to="/" text="Top"></b-breadcrumb-item>
-      <b-breadcrumb-item text="Categories" active="true"></b-breadcrumb-item>
+      <b-breadcrumb-item text="Categories" active></b-breadcrumb-item>
     </b-breadcrumb>
 
     <h1>CategoryList</h1>
@@ -22,7 +22,7 @@ export default {
   name: "CategoryList",
   data: function() {
     return {
-      categories: {}
+      categories: []
     };
   },
   created: function() {
