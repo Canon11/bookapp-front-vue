@@ -1,5 +1,16 @@
 <template>
   <div class="book-list">
+    <v-toolbar color="teal">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+
+      <v-toolbar-title>Manage</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>more_vert</v-icon>
+      </v-btn>
+    </v-toolbar>
     <div>
       <router-link to="/">back to top</router-link>
     </div>

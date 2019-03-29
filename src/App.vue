@@ -1,6 +1,29 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <b-navbar toggleable="lg" type="dark" variant="info">
+      <b-navbar-brand>BookApp</b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item>
+            <b-link to="/">Top</b-link>
+          </b-nav-item>
+          <b-nav-item>
+            <b-link to="categories">Categories</b-link>
+          </b-nav-item>
+          <b-nav-item>
+            <b-link to="books">Books</b-link>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+
+    <!-- this is main area -->
+    <b-container>
+      <router-view></router-view>
+    </b-container>
   </div>
 </template>
 
@@ -9,14 +32,3 @@ export default {
   name: "app"
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
