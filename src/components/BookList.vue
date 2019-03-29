@@ -5,7 +5,19 @@
 </template>
 
 <script>
+import ApiHost from "../api/ApiHost";
+import axios from "axios";
+
 export default {
-  name: "BookList"
+  name: "BookList",
+  created: function() {
+    axios
+      .get(ApiHost.url + "/books", {
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(response => {
+        console.log(response);
+      });
+  }
 };
 </script>
