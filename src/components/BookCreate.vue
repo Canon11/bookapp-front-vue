@@ -41,6 +41,18 @@
           </template>
         </b-form-select>
       </b-form-group>
+      <b-form-group id="input-book-image-url-group" label="Image" label-for="input-book-image-url">
+        <b-form-input
+          id="input-book-image-url"
+          v-model="form.imageUrl"
+          type="text"
+          required
+          placeholder="Enter Book Image URL"
+        ></b-form-input>
+      </b-form-group>
+      <div v-if="form.imageUrl" class="mb-2">
+        <b-img :src="form.imageUrl" fluid alt="book image"></b-img>
+      </div>
       <b-button type="submit" variant="primary" :disabled="createSucceeded">Submit</b-button>
     </b-form>
   </div>
@@ -56,7 +68,8 @@ export default {
     return {
       form: {
         name: "",
-        categoryId: null
+        categoryId: null,
+        imageUrl: ""
       },
       categories: [],
       createSucceeded: false
@@ -69,6 +82,7 @@ export default {
       var params = new URLSearchParams();
       params.append("name", this.form.name);
       params.append("category_id", this.form.categoryId);
+      params.append("image_url", this.form.imageUrl);
 
       axios.post(ApiHost.url + "/books", params).then(() => {
         this.createSucceeded = true;
